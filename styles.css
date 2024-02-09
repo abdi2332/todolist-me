@@ -22,4 +22,10 @@ button{
    background-color: rgb(8, 80, 234);
    margin-left: 10px;
    border: none;
+   padding: 7px 10px 7px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+button:hover{
+    background-color: rgb(12, 12, 57);
 }
