@@ -16,6 +16,7 @@ h1{
     background-color: antiquewhite;
     margin: 20px auto 20px;
     border-radius: 20px;
+    position: relative;
 }
 button{
    color: aliceblue; 
@@ -28,4 +29,12 @@ button{
 }
 button:hover{
     background-color: rgb(12, 12, 57);
+}
+#lists li{
+    padding-top: 10px;
+}
+.del{
+position: absolute;
+left: 350px;
+font-size: xx-small;
 }
