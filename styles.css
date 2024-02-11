@@ -31,10 +31,18 @@ button:hover{
     background-color: rgb(12, 12, 57);
 }
 #lists li{
-    padding-top: 10px;
+    padding-top: 12px;
+    list-style: none;
 }
 .del{
 position: absolute;
 left: 350px;
-font-size: xx-small;
+font-size: xx-small
+}
+.check{
+ position: absolute;
+ left: 5px;
+}
+.checked{
+    text-decoration: line-through;
 }
