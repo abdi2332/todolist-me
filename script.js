@@ -5,7 +5,9 @@ btn.addEventListener("click", add);
 function add() {
     const input = document.getElementById("input").value;
     const li = document.createElement('li');
-    li.textContent = input;
+    const text=document.createElement('span')
+    text.textContent = input;
+    li.append(text)
     output.appendChild(li)  
     //  appending lists to ul
 
@@ -21,6 +23,25 @@ function add() {
     button.innerText="X"
     button.classList.add("del");
     li.appendChild(button)
+
+
+    const editBtn = document.createElement('button');
+    editBtn.textContent = "Edit";
+    editBtn.type = 'button';
+    editBtn.classList.add("editbtn")
+    li.appendChild(editBtn);
+    editBtn.addEventListener('click', editTask);
+
+
+   
+  const saveBtn = document.createElement('button');
+  saveBtn.textContent = 'Save';
+  saveBtn.type = 'button';
+  saveBtn.classList.add('hide');
+  li.appendChild(saveBtn);
+  saveBtn.addEventListener('click', saveEdit);
+
+    
     
 
     document.getElementById("input").value = "";
@@ -42,3 +63,19 @@ output.addEventListener('click', function(e){
     }
 
 })
+function editTask(event) {
+    const item = event.target.parentElement;
+    const text = item.children[0]; // Assuming the text is the first child element
+    text.setAttribute('contenteditable',true);
+    event.target.classList.add('hide');
+    event.target.nextElementSibling.classList.remove('hide');
+}
+
+
+function saveEdit(event) {
+    const item = event.target.parentElement;
+    const text = item.children[0];
+    text.removeAttribute('contenteditable');
+    this.classList.add('hide');
+    this.previousElementSibling.classList.remove('hide');
+  }
