@@ -42,9 +42,9 @@ function add() {
   saveBtn.addEventListener('click', saveEdit);
 
     
-    
-
+  saveData()
     document.getElementById("input").value = "";
+    
 
 }
 
@@ -56,12 +56,14 @@ output.addEventListener('click', function(e){
         const listItem = event.target.parentElement;
         if (event.target.checked) {
             listItem.classList.add("checked");
+           
         } else {
             listItem.classList.remove("checked");
+            
         }
-
+       
     }
-
+    saveData()
 })
 function editTask(event) {
     const item = event.target.parentElement;
@@ -69,6 +71,7 @@ function editTask(event) {
     text.setAttribute('contenteditable',true);
     event.target.classList.add('hide');
     event.target.nextElementSibling.classList.remove('hide');
+    saveData()
 }
 
 
@@ -78,4 +81,16 @@ function saveEdit(event) {
     text.removeAttribute('contenteditable');
     this.classList.add('hide');
     this.previousElementSibling.classList.remove('hide');
+    saveData()
   }
+  function saveData(){
+    localStorage.setItem("data", output.innerHTML)
+  }
+  // Add this code at the beginning of your script
+window.addEventListener('load', function() {
+    const savedData = localStorage.getItem("data");
+    if (savedData) {
+      output.innerHTML = savedData;
+    }
+  });
+  
